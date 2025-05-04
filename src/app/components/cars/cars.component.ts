@@ -45,7 +45,8 @@ export class CarsComponent {
     this.car = {} as Car;
   }
   editCar(car: Car) {
-    console.log(car.Name)
+    this.car = car;
+    this.isediting = true;
     }
     deleteCar(car: Car) {
       console.log(car.Name)
