@@ -49,7 +49,7 @@ export class CarsComponent {
     this.isediting = true;
     }
     deleteCar(car: Car) {
-      console.log(car.Name)
+      this.cars = this.cars.filter(c => c.id !== car.id);
     }
 
 }
