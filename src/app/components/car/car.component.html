@@ -1,6 +1,6 @@
 <div class="container bg-light p-5">
     <h3>Cadastro de carros:</h3>
-    <form >
+    <form #carForm="ngForm">
     <div class="row mb-3">
         <div class="col-md-2">
             <label for="carName" class="col-form-label">Carro:</label>
@@ -22,17 +22,17 @@
                 <label for="carPrice" class="col-form-label" >Preço:</label>
             </div>
             <div class="col-md-4">
-                <input type="number" class="form-control" id="carPrice" name="carPrice" [(ngModel)]="car.Price"  required>
+                <input type="text" class="form-control" id="carPrice" name="carPrice" [(ngModel)]="car.Price"  required>
             </div>
             <div class="col-md-2">
                 <label for="carYear" class="col-form-label">Ano:</label>
-            </div>
+            </div> 
             <div class="col-md-4">
                 <input type="text" class="form-control" id="carYear" name="carYear"  [(ngModel)]="car.Year"  required>
             </div>
        </div>
        <div>
-            <div class="btn btn-primary" (click)="save()">Salvar</div>
+            <button type="submit" class="btn btn-primary" (click)="save()" [disabled]="carForm.invalid">Salvar</button>
        </div>
     </form>
 </div>
