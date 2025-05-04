@@ -8,7 +8,8 @@ import { Car } from '../../Car'
   styleUrl: './cars.component.css'
 })
 export class CarsComponent {
-
+  
+  isediting: boolean = false;
 
   car: Car = {} as Car;
   carCounter: number = 3;
@@ -35,9 +36,12 @@ export class CarsComponent {
   ];
 
   saveCar() {
+    if (!this.isediting) {
     this.car.id = this.carCounter + 1;
     this.cars.push(this.car);
     this.carCounter++;
+    }
+    this.isediting = false;
     this.car = {} as Car;
   }
   editCar(car: Car) {
