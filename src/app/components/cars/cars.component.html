@@ -1,1 +1,31 @@
-<p>cars works!</p>
+<app-car [car]="car" (saveEmitter)="saveCar()"></app-car>
+
+<div class="container bg-light p-4">
+    <h4>Carros Cadastrados:</h4>
+    <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Carro</th>
+            <th>Montadora</th>
+            <th>Preço</th>
+            <th>Ano</th>
+            <th class="text-end">Opções</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let car of cars">
+                <td>{{ car.id }}</td>
+                <td>{{ car.Name }}</td>
+                <td>{{ car.Brand }}</td>
+                <td>{{ car.Price | currency:'BRL' }}</td>
+                <td>{{ car.Year }}</td>
+                <td class="text-end">
+                    <button class="btn btn-success me-2" (click)="editCar(car)">Alterar</button>
+                    <button class="btn btn-danger"(click)="deleteCar(car)">Remover</button>
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
